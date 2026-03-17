@@ -6,6 +6,7 @@ namespace PraticaInstituição
 {
    class Departamento
     {
-        public string Nome {  get; set; }
+        public string Nome { get; set; }
+
     }
 }
