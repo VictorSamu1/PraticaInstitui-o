@@ -4,25 +4,36 @@ internal class Program
 {
     private static void Main(string[] args)
     {
-        var iesUTFPR = new Instituicao();
-        iesUTFPR.Nome = "UTFPR";
-        iesUTFPR.Endereco = "Medianeira";
+        var iesUTFPR = new Instituicao()
+        {
+
+            Nome = "UTFPR",
+            Endereco = new Endereco()
+            {
+                Rua = "Francisqueto",
+                Numero = "676"
+                
+            }
+            
+        };
 
 
+        var iesCC = new Instituicao() {
+            Nome = "Casa do Código",
+            Endereco = new Endereco() {
+                Rua = "Robertino",
+                Numero = "700"
+            }
+        };
 
-        var iesCC = new Instituicao();
-        iesCC.Nome = "Casa do Código";
-        iesCC.Endereco = "São Paulo";
+        var dptoEnsino = new Departamento("Computação");
+        
 
+        var dptoAlimentos = new Departamento("Alimentos");
+        
 
-        var dptoEnsino = new Departamento();
-        dptoEnsino.Nome = "Computação";
-
-        var dptoAlimentos = new Departamento();
-        dptoAlimentos.Nome = "Alimentos";
-
-        var dptoRevisao = new Departamento();
-        dptoRevisao.Nome = "Revisão Escrita ";
+        var dptoRevisao = new Departamento("Revisão Escrita ");
+       
 
         iesUTFPR.RegistrarDepartamento(dptoEnsino);
         iesUTFPR.RegistrarDepartamento(dptoAlimentos);
