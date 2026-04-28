@@ -49,9 +49,51 @@ internal class Program
         {
             Console.WriteLine($"=> {iesCC.Departamentos[i].Nome}");
         }
+        dptoAlimentos.RegistrarCursos(
+         new Curso { Nome = "Tecnologia em Alimentos", CargaHoraria = 2000 });
 
-        Console.Write("Pressione qualquer tecla para continuar");
+        dptoAlimentos.RegistrarCursos(
+        new Curso { Nome = "Engenharia de Alimentos", CargaHoraria = 3000 });
+
+        Console.WriteLine();
+
+        Console.WriteLine();
+
+        Console.WriteLine($"Cursos no departamento de {dptoAlimentos.Nome}");
+
+        foreach (var curso in dptoAlimentos.Cursos)
+        {
+            Console.WriteLine($"=> {curso.Nome} ({curso.CargaHoraria}h)");
+        }
+
+        dptoAlimentos.FecharDepartamento();
+        dptoAlimentos = null;
+        Console.WriteLine();
+        Console.WriteLine();
+        Console.WriteLine("O departamento de alimentos foi fechado");
+       
+       
+
+        var ctAlimentos = new Curso()
+        {
+            Nome = "Tecnologia em Alimentos",
+            CargaHoraria = 2000
+        };
+        if (!dptoAlimentos.Cursos.Contains(ctAlimentos))
+            dptoAlimentos.RegistrarCursos(ctAlimentos);
+
+        Console.WriteLine();
+        var cursoCC = new Curso() { Nome = "Ciência da Computação", CargaHoraria = 3000 };
+        cursoCC.RegistrarDisciplina(new Disciplina() { Nome = "Algoritmos", CargaHoraria = 80 });
+        cursoCC.RegistrarDisciplina(new Disciplina() { Nome = "Orientação a Objetos", CargaHoraria = 60 });
+        cursoCC.RegistrarDisciplina(new Disciplina() { Nome = "Orientação a Objetos", CargaHoraria = 80 });
+        cursoCC.RegistrarDisciplina(new Disciplina() { Nome = "Estrutura de Dados", CargaHoraria = 80 });
+        cursoCC.RegistrarDisciplina(new Disciplina() { Nome = "Programação para web", CargaHoraria = 80 });
+        Console.WriteLine($"O curso {cursoCC.Nome} possui {cursoCC.Disciplinas.Count} disciplinas:");
+        foreach (var d in cursoCC.Disciplinas)
+        {
+            Console.WriteLine($"=> {d.Nome} ({d.CargaHoraria})");
+        }
         Console.ReadKey();
-
     }
 }
